@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="WealthFlow is a sophisticated wealth management platform offering AI-driven insights, real-time market data, and premium financial tools." />
+    <title>WealthFlow - Own Your Wealth</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Theme CSS Variables -->
+    <style>
+      :root {
+        --background: 248 250 252; /* Slate 50 */
+        --foreground: 15 23 42;    /* Slate 900 */
+      }
+      .dark {
+        --background: 15 16 17;    /* #0F1011 */
+        --foreground: 209 213 219; /* Gray 300 */
+      }
+
+      /* Light Mode Premium Background */
+      html:not(.dark) body {
+        background-color: rgb(248, 250, 252);
+        background-image: 
+          radial-gradient(circle at 15% 50%, rgba(144, 184, 240, 0.08), transparent 25%),
+          radial-gradient(circle at 85% 30%, rgba(144, 184, 240, 0.08), transparent 25%);
+        background-attachment: fixed;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        background-color: rgba(156, 163, 175, 0.5); /* Gray-400 with opacity */
+        border-radius: 9999px;
+        border: 2px solid transparent;
+        background-clip: content-box;
+        transition: background-color 0.3s ease;
+      }
+      
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #90B8F0; /* Brand Primary */
+      }
+
+      .dark ::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.15);
+      }
+
+      .dark ::-webkit-scrollbar-thumb:hover {
+        background-color: #90B8F0; /* Brand Primary */
+      }
+
+      /* Firefox */
+      * {
+        scrollbar-width: thin;
+        scrollbar-color: rgba(156, 163, 175, 0.5) transparent;
+      }
+      
+      .dark * {
+        scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+      }
+    </style>
+
+    <!-- Theme Initialization Script (Prevents FOUC) -->
+    <script>
+      (function() {
+        try {
+          const savedTheme = localStorage.getItem('theme');
+          const root = document.documentElement;
+          // Default is dark if nothing saved
+          if (savedTheme === 'light') {
+            root.classList.remove('dark');
+            root.classList.add('light');
+          } else {
+            root.classList.add('dark');
+            root.classList.remove('light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              background: 'rgb(var(--background) / <alpha-value>)',
+              foreground: 'rgb(var(--foreground) / <alpha-value>)',
+              primary: '#90B8F0',
+              secondary: '#1F2125',
+            },
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Libre Baskerville', 'serif'],
+            },
+            backgroundImage: {
+              'hero-gradient': 'linear-gradient(to bottom, rgba(15, 16, 17, 0.3), #0F1011)',
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-background text-foreground font-sans antialiased selection:bg-primary selection:text-background transition-colors duration-300">
+    <div id="root"></div>
+  </body>
+</html>
